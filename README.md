@@ -28,6 +28,7 @@ to not forget to run "npm install" once after checkout
 	cp examples/credentials_tmpl.coffee examples/credentials.coffee
 	#  and config with your profitbricks user and passsword
 
+	# after that run a sample like this:
 	DEBUG=* ./node_modules/.bin/coffee examples/create_datacenter.coffee
 
 
