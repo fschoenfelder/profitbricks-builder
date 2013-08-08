@@ -1,0 +1,151 @@
+{
+    "dataCenterId": "2f1d2ebc-c946-4dd2-9e28-d4fda990a934",
+    "dataCenterVersion": "29",
+    "dataCenterName": "jenkinsVenus",
+    "servers": [
+        {
+            "dataCenterId": "2f1d2ebc-c946-4dd2-9e28-d4fda990a934",
+            "dataCenterVersion": "29",
+            "serverId": "6e1c7ed4-40ad-b7ee-89ec-fb46e1cc0c36",
+            "serverName": "jenkinsServer",
+            "cores": "1",
+            "ram": "1024",
+            "internetAccess": "true",
+            "ips": "46.16.76.60",
+            "connectedStorages": {
+                "busType": "VIRTIO",
+                "deviceNumber": "1",
+                "size": "50",
+                "storageId": "baec4918-e62b-074f-4e11-eecc1709313f",
+                "storageName": "jenkinsStorage"
+            },
+            "nics": {
+                "dataCenterId": "2f1d2ebc-c946-4dd2-9e28-d4fda990a934",
+                "dataCenterVersion": "29",
+                "nicId": "8cffbf2c-80a6-bdab-92b3-31b29be49421",
+                "nicName": "eth0",
+                "lanId": "1",
+                "internetAccess": "true",
+                "serverId": "6e1c7ed4-40ad-b7ee-89ec-fb46e1cc0c36",
+                "ips": "46.16.76.60",
+                "macAddress": "02:01:2a:db:a0:aa",
+                "firewall": {
+                    "active": "true",
+                    "firewallId": "4786508c-8faa-5f0d-f2aa-bcba713da4e3",
+                    "firewallRules": [
+                        {
+                            "firewallRuleId": "27d6f4ae-02dd-7a6f-192c-5af8097c0cd5",
+                            "protocol": "TCP",
+                            "portRangeStart": "8000",
+                            "portRangeEnd": "9000"
+                        },
+                        {
+                            "firewallRuleId": "4148dcc1-5b92-2d05-7e4e-734f821907f5",
+                            "protocol": "TCP",
+                            "portRangeStart": "22",
+                            "portRangeEnd": "22"
+                        }
+                    ],
+                    "nicId": "8cffbf2c-80a6-bdab-92b3-31b29be49421",
+                    "provisioningState": "AVAILABLE"
+                }
+            },
+            "provisioningState": "AVAILABLE",
+            "virtualMachineState": "RUNNING",
+            "creationTime": "2013-03-26T11:43:43.488Z",
+            "lastModificationTime": "2013-04-02T19:43:46.736Z",
+            "osType": "OTHER",
+            "availabilityZone": "AUTO"
+        },
+        {
+            "dataCenterId": "2f1d2ebc-c946-4dd2-9e28-d4fda990a934",
+            "dataCenterVersion": "29",
+            "serverId": "b9f0b00a-a495-2757-0d38-732727597d12",
+            "serverName": "devSetupServer",
+            "cores": "1",
+            "ram": "1024",
+            "internetAccess": "true",
+            "ips": "46.16.76.133",
+            "connectedStorages": {
+                "busType": "VIRTIO",
+                "deviceNumber": "1",
+                "size": "50",
+                "storageId": "dff9c310-3da3-c8f7-006c-af8b781fc98d",
+                "storageName": "devSetupStorage"
+            },
+            "nics": {
+                "dataCenterId": "2f1d2ebc-c946-4dd2-9e28-d4fda990a934",
+                "dataCenterVersion": "29",
+                "nicId": "82a1ed60-9c2a-ffc9-ef05-e77df1ea0a59",
+                "nicName": "eth0",
+                "lanId": "1",
+                "internetAccess": "true",
+                "serverId": "b9f0b00a-a495-2757-0d38-732727597d12",
+                "ips": "46.16.76.133",
+                "macAddress": "02:01:c8:5d:8b:4a",
+                "firewall": {
+                    "active": "true",
+                    "firewallId": "510fdf97-4f85-57c2-0225-81b592a62988",
+                    "firewallRules": [
+                        {
+                            "firewallRuleId": "b615bbfd-db35-6764-3ce1-eae79f28f569",
+                            "protocol": "TCP",
+                            "portRangeStart": "22",
+                            "portRangeEnd": "22"
+                        },
+                        {
+                            "firewallRuleId": "eac02645-e09b-46e2-9709-cefe24787634",
+                            "protocol": "TCP",
+                            "portRangeStart": "8000",
+                            "portRangeEnd": "9000"
+                        }
+                    ],
+                    "nicId": "82a1ed60-9c2a-ffc9-ef05-e77df1ea0a59",
+                    "provisioningState": "AVAILABLE"
+                }
+            },
+            "provisioningState": "AVAILABLE",
+            "virtualMachineState": "RUNNING",
+            "creationTime": "2013-04-02T18:44:19.666Z",
+            "lastModificationTime": "2013-04-02T18:44:19.666Z",
+            "osType": "OTHER",
+            "availabilityZone": "AUTO"
+        }
+    ],
+    "storages": [
+        {
+            "dataCenterId": "2f1d2ebc-c946-4dd2-9e28-d4fda990a934",
+            "dataCenterVersion": "29",
+            "storageId": "dff9c310-3da3-c8f7-006c-af8b781fc98d",
+            "size": "50",
+            "storageName": "devSetupStorage",
+            "mountImage": {
+                "imageId": "19290021-97b8-11e2-a401-0025901dfe2a",
+                "imageName": "actano-rplan_1364208012__.vmdk"
+            },
+            "serverIds": "b9f0b00a-a495-2757-0d38-732727597d12",
+            "provisioningState": "AVAILABLE",
+            "creationTime": "2013-04-02T18:44:19.671Z",
+            "lastModificationTime": "2013-04-02T18:44:19.671Z",
+            "osType": "OTHER"
+        },
+        {
+            "dataCenterId": "2f1d2ebc-c946-4dd2-9e28-d4fda990a934",
+            "dataCenterVersion": "29",
+            "storageId": "baec4918-e62b-074f-4e11-eecc1709313f",
+            "size": "50",
+            "storageName": "jenkinsStorage",
+            "mountImage": {
+                "imageId": "19290021-97b8-11e2-a401-0025901dfe2a",
+                "imageName": "actano-rplan_1364208012__.vmdk"
+            },
+            "serverIds": "6e1c7ed4-40ad-b7ee-89ec-fb46e1cc0c36",
+            "provisioningState": "AVAILABLE",
+            "creationTime": "2013-04-02T18:44:19.671Z",
+            "lastModificationTime": "2013-04-02T18:44:19.671Z",
+            "osType": "OTHER"
+        }
+    ],
+    "provisioningState": "AVAILABLE",
+    "region": "EUROPE"
+}

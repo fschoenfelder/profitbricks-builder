@@ -1,0 +1,42 @@
+{
+  "name": "pb-builder",
+  "description": "node.js profitbricks vm builder and wrapper around the soap api",
+  "keywords": [
+    "profitbricks",
+    "vm",
+    "virtual machine"
+  ],
+  "author": {
+    "name": "Philipp Thürwächter"
+  },
+  "version": "0.0.1",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/pithu/profitbricks-builder/master/LICENSE"
+    }
+  ],
+  "bugs": "https://github.com/pithu/profitbricks-builder/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pithu/profitbricks-builder.git"
+  },
+  "dependencies": {
+    "coffee-script": ">=1.6.2",
+    "soap": "~0.2.7",
+    "async": "~0.2.9",
+    "underscore": "~1.5.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.8.1",
+    "chai": "1.5.x",
+    "debug": "~0.7.2"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "./lib/index"
+}

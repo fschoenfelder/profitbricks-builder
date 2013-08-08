@@ -1,0 +1,5 @@
+Cakefile
+examples/
+src/
+test/
+.git*
