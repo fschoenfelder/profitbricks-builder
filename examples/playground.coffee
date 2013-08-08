@@ -16,4 +16,16 @@ getAllImages = ->
                 console.log "ctx is #{helper.beautify(ctx)}"
 
 
-getAllImages()
+getAllDataCenters = ->
+    helper.getPBBuilder (pbBuilder) ->
+        pbBuilder
+            .getAllDataCenters()
+            .execute (err, ctx) ->
+                if err?
+                    debug "playground failed with err: #{err}"
+                else
+                    debug "playground succeed"
+                console.log "ctx is #{helper.beautify(ctx)}"
+
+
+getAllDataCenters()
