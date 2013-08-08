@@ -1,9 +1,6 @@
 profitbricks-builder
 ====================
 
-
-# encrypted databags
-
 ## Description
 
 node.js builder and wrapper for the profitbricks soap api
