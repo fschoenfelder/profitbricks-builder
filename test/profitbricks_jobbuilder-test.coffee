@@ -90,11 +90,11 @@ describe "profitBricksJobBuilder", ->
         pbApi.soapClient.mock("createStorage")
             .returns([{storageId: "stNewID"}])
             .expects (args) ->
-                expect(args).to.be.deep.equal({ arg0: storage01 })
+                expect(args).to.be.deep.equal({ request: storage01 })
 
         pbApi.soapClient.mock("connectStorageToServer")
             .expects (args) ->
-                expect(args).to.be.deep.equal({arg0:
+                expect(args).to.be.deep.equal({request:
                         {storageId: "stNewID", serverId: 11, busType: "VIRTIO"}})
 
         # execute
