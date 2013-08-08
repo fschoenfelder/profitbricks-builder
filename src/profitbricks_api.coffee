@@ -190,7 +190,7 @@ class ProfitBricksApi
         test = (fcb) =>
             @getDataCenter dataCenter, (err, dcItem) ->
                 # debug "datacenter is #{JSON.stringify(dcItem)}"
-                debug "wait until dataCenter #{dcItem?.dataCenterId} is DEAD"
+                debug "wait until dataCenter #{dcItem?.dataCenterId or dataCenter?.dataCenterId} is DEAD"
                 if err?
                     fcb("ready")
                 else
