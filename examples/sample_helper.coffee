@@ -1,3 +1,5 @@
+debug = require('debug')('profitbricks-builder/examples')
+
 profitBricksJobBuilder = require '../src/profitbricks_jobbuilder'
 profitBricksApi = require '../src/profitbricks_api'
 

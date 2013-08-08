@@ -5,8 +5,8 @@ profitBricksApi = require '../src/profitbricks_api'
 
 helper = require './sample_helper'
 
-createDataCenterWithFirewallRules = ->
-    debug "createDataCenterWithFirewallRules"
+createDataCenterWithServer = ->
+    debug "createDataCenterWithServer"
     helper.getPBBuilder (pbBuilder) ->
         dcName = 'dc_test01'
         serverName = 'server_test01'
@@ -14,15 +14,44 @@ createDataCenterWithFirewallRules = ->
         pbBuilder
             .createDataCenter({dataCenterName: dcName})
             .createServer({serverName: serverName, 'cores': "1", 'ram': "256", 'lanId': 1, 'internetAccess': true})
+            .waitUntilDataCenterIsAvailable()
+            .waitUntilServerIsRunning()
+            .execute (err, ctx) ->
+                if err?
+                    debug "datacenter create failed: #{err}"
+                else
+                    debug "datacenter create succeed"
+                debug "context is: #{helper.beautify(ctx)}"
+
+createDataCenterWithServerStorageAndFirewallRules = ->
+    debug "createDataCenterWithServerStorageAndFirewallRules"
+    helper.getPBBuilder (pbBuilder) ->
+        dcName = 'dc_test01'
+        serverName = 'server_test01'
+        storageName = 'storage_test01'
+        debug "about to create datacenter '#{dcName}' with one server '#{serverName}'"
+        pbBuilder
+            .createDataCenter({dataCenterName: dcName})
+            .createServer({serverName: serverName, 'cores': "1", 'ram': "256", 'lanId': 1, 'internetAccess': true})
+            .waitUntilDataCenterIsAvailable()
             .getDataCenterDetails()
             .selectOneServer({serverName: serverName})
+            .getAllImages()
+            .selectOneImage({
+                imageName: "Ubuntu-12.04-LTS-server-amd64-06.21.13.img" })
+            .filterStorages({
+                storageName: storageName})
+            .deleteStorages()
+            .createStorage({
+                storageName: storageName
+                size: '50'})
+            .connectStorageToServer()
             .waitUntilDataCenterIsAvailable()
-            .selectOneNic({lanId: "1"})
-            .addFirewallRulesToNic([
-                {protocol: "TCP", portRangeStart: 22, portRangeEnd: 22}
-                {protocol: "TCP", portRangeStart: 8000, portRangeEnd: 9000}])
-                #pbBuilder.waitUntilDataCenterIsAvailable()
+            .selectOneNic({
+                lanId: "1" })
+            .addFirewallRulesToNic([{protocol: "TCP", portRangeStart: 22, portRangeEnd: 22}, {protocol: "TCP", portRangeStart: 8000, portRangeEnd: 9000}])
             .activateFirewalls()
+            .waitUntilServerIsRunning()
             .execute (err, ctx) ->
                 if err?
                     debug "datacenter create failed: #{err}"
@@ -31,10 +60,8 @@ createDataCenterWithFirewallRules = ->
                 debug "context is: #{helper.beautify(ctx)}"
 
 
-createDataCenterWithFirewallRules()
-
-createDataCenterWithFirewallRulesContextSample = ->
-    debug "createDataCenterWithFirewallRulesContextSample"
+createDataCenterWithServerAndFirewallRulesContextSample = ->
+    debug "createDataCenterWithServerAndFirewallRulesContextSample"
     helper.getPBBuilder (pbBuilder) ->
         dcName = 'dc_test02'
         serverName = 'server_test02'
@@ -54,9 +81,7 @@ createDataCenterWithFirewallRulesContextSample = ->
                 debug "ctx: #{helper.beautify(ctx)}"
                 pbBuilder.waitUntilDataCenterIsAvailable()
                 pbBuilder.selectOneNic({lanId: "1"})
-                pbBuilder.addFirewallRulesToNic([
-                {protocol: "TCP", portRangeStart: 22, portRangeEnd: 22}
-                {protocol: "TCP", portRangeStart: 8000, portRangeEnd: 9000}])
+                pbBuilder.addFirewallRulesToNic([{protocol: "TCP", portRangeStart: 22, portRangeEnd: 22}, {protocol: "TCP", portRangeStart: 8000, portRangeEnd: 9000}])
                 pbBuilder.activateFirewalls()
                 pbBuilder.execute (err, ctx) ->
                     if err?
@@ -67,3 +92,4 @@ createDataCenterWithFirewallRulesContextSample = ->
 
 
 
+createDataCenterWithServer()
