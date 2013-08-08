@@ -1,7 +1,7 @@
 async = require 'async'
 {_} = require 'underscore'
 
-debug = require('debug')('profitbricks-builder')
+debug = require('debug')('profitbricks-builder/profitbricks_api')
 
 SoapClient = require('./soapclient')
 

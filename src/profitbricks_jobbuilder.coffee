@@ -2,7 +2,7 @@ fs = require 'fs'
 async = require 'async'
 _ = require 'underscore'
 
-debug = require('debug')('profitbricks-builder')
+debug = require('debug')('profitbricks-builder/profitbricks_jobbuilder')
 
 ## export ##
 

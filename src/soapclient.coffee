@@ -1,6 +1,6 @@
 soap = require 'soap'
 
-debug = require('debug')('profitbricks-builder')
+debug = require('debug')('profitbricks-builder/soapclient')
 
 class SoapClient
     constructor: (@url, @security) ->
