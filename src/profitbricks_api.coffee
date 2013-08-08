@@ -86,7 +86,7 @@ class ProfitBricksApi
 
     createStorage: (storageConfig, cb) ->
         debug "about to create storage storageConfig #{JSON.stringify(storageConfig)}"
-        @soapClient.invoke "createStorage", {arg0: storageConfig}, (err, result) ->
+        @soapClient.invoke "createStorage", {request: storageConfig}, (err, result) ->
             storage = result?.return?[0]
             debug "create storage returned with error: #{err}, result: #{JSON.stringify(storage)}"
             cb(err, storage)
@@ -95,7 +95,7 @@ class ProfitBricksApi
     connectStorageToServer: (config, cb) ->
         config.busType = if config.busType then config.busType.toUpperCase()
         debug "about to connect storage #{JSON.stringify(config)}"
-        @soapClient.invoke "connectStorageToServer", {arg0: config}, (err, result) ->
+        @soapClient.invoke "connectStorageToServer", {request: config}, (err, result) ->
             debug "storage connected with id #{config.storageId}, error: #{err}, result: #{JSON.stringify(result)}"
             cb(err)
 
