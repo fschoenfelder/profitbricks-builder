@@ -38,7 +38,7 @@ createDataCenterWithServerStorageAndFirewallRules = ->
             .selectOneServer({serverName: serverName})
             .getAllImages()
             .selectOneImage({
-                imageName: "Ubuntu-12.04-LTS-server-amd64-06.21.13.img" })
+                imageName: "Ubuntu-12.04-LTS-server-amd64-06.21.13.img", region: "EUROPE" })
             .filterStorages({
                 storageName: storageName})
             .deleteStorages()
@@ -92,4 +92,4 @@ createDataCenterWithServerAndFirewallRulesContextSample = ->
 
 
 
-createDataCenterWithServer()
+createDataCenterWithServerStorageAndFirewallRules()
