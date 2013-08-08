@@ -16,16 +16,20 @@ node.js builder and wrapper for the profitbricks soap api
 
 ## runninung tests and samples
 
-	# to not forget to run "npm install" once after checkout
+to not forget to run "npm install" once after checkout
 
-	# run mocha tests:
+*run mocha tests:*
+
 	./node_modules/.bin/mocha  -R tap --compilers coffee:coffee-script test/soapclient-test.coffee
 	./node_modules/.bin/mocha  -R tap --compilers coffee:coffee-script test/profitbricks_jobbuilder-test.coffee
 
-	# run samples:
+*run samples:*
 
-	# provide your credenials: copy the credentials template and set your user and passsword in examples/credentials.coffee
+	# first provide your profitbricks credentials
+
+	# copy the credentials template file to examples/credentials.coffee
 	cp examples/credentials_tmpl.coffee examples/credentials.coffee
+	#  and config with your profitbricks user and passsword
 
 	DEBUG=* ./node_modules/.bin/coffee examples/create_datacenter.coffee
 
