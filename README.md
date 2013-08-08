@@ -11,7 +11,7 @@ node.js builder and wrapper for the profitbricks soap api
 ## Usage
 
 
-## runninung tests and samples
+## running tests and samples
 
 to not forget to run "npm install" once after checkout
 
