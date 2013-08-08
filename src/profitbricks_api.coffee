@@ -132,7 +132,7 @@ class ProfitBricksApi
 
     createServer: (serverConfig, cb) ->
         debug "about to create server with config #{JSON.stringify(serverConfig)}"
-        @soapClient.invoke "createServer", {arg0: serverConfig}, (err, result) ->
+        @soapClient.invoke "createServer", {request: serverConfig}, (err, result) ->
             server = result?.return?[0]
             debug "create server returned with error: #{err}, result: #{JSON.stringify(server)}"
             cb(err, server)
