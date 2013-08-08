@@ -1,7 +1,7 @@
 async = require 'async'
 {_} = require 'underscore'
 
-debug = require('debug')('rplan.tools.jenkins.bootstrap.profitbricks_api')
+debug = require('debug')('profitbricks-builder')
 
 SoapClient = require('./soapclient')
 

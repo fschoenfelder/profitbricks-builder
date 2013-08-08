@@ -1,5 +1,6 @@
 soap = require 'soap'
-debug = require('debug')('rplan.tools.jenkins.bootstrap.soapclient')
+
+debug = require('debug')('profitbricks-builder')
 
 class SoapClient
     constructor: (@url, @security) ->

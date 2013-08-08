@@ -2,7 +2,7 @@ fs = require 'fs'
 async = require 'async'
 _ = require 'underscore'
 
-debug = require('debug')('rplan.tools.jenkins.bootstrap.profitbricks_jobbuilder')
+debug = require('debug')('profitbricks-builder')
 
 ## export ##
 
