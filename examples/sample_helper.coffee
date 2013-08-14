@@ -1,7 +1,7 @@
 debug = require('debug')('profitbricks-builder/examples')
 
-profitBricksJobBuilder = require '../src/profitbricks_jobbuilder'
-profitBricksApi = require '../src/profitbricks_api'
+profitBricksJobBuilder = require('../src').pbbuilder
+profitBricksApi = require('../src/').pbapi
 
 module.exports.credentials = credentials = null
 try
