@@ -12,7 +12,7 @@ testDeleteDataCenterByName = ->
         debug "about to delete datacenters with name #{dcName}"
         pbBuilder.getAllDataCenters()
             .selectOneDataCenter({dataCenterName: dcName})
-            .deleteDataCenters()
+            .deleteDataCenter()
             .waitUntilDataCenterIsDead()
             .execute (err, ctx) ->
                 if err?
