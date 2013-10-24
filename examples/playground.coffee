@@ -1,8 +1,11 @@
-debug = require('debug')('profitbricks-builder/examples')
+# Std library
+# Third party
+debug = require('debug') 'profitbricks-builder/examples'
 
+# Local dep
 helper = require './sample_helper'
 
-debug "playground about todo something"
+debug 'playground about todo something'
 
 getAllImages = ->
     helper.getPBBuilder (pbBuilder) ->
@@ -12,8 +15,8 @@ getAllImages = ->
                 if err?
                     debug "playground failed with err: #{err}"
                 else
-                    debug "playground succeed"
-                console.log "ctx is #{helper.beautify(ctx)}"
+                    debug 'playground succeed'
+                console.log "ctx is #{helper.beautify ctx}"
 
 
 getAllDataCenters = ->
@@ -24,8 +27,7 @@ getAllDataCenters = ->
                 if err?
                     debug "playground failed with err: #{err}"
                 else
-                    debug "playground succeed"
-                console.log "ctx is #{helper.beautify(ctx)}"
-
+                    debug 'playground succeed'
+                console.log "ctx is #{helper.beautify ctx}"
 
 getAllDataCenters()
