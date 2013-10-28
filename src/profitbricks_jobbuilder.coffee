@@ -10,7 +10,7 @@ debug = require('debug')('profitbricks-builder/profitbricks_jobbuilder')
 ## export ##
 
 module.exports = (pbApi) ->
-    new ProfitBricksJobBuilder(pbApi)
+    new ProfitBricksJobBuilder pbApi
 
 class ProfitBricksJobBuilder
     #default configurations

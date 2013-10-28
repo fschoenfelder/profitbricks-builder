@@ -55,9 +55,11 @@ describe 'profitBricksJobBuilder', ->
         # execute
         pbBuilder
             .getAllDataCenters()
-            .selectOneDataCenter {dataCenterName: 'dc1'}
+            .selectOneDataCenter(
+                dataCenterName: 'dc1')
             .getDataCenterDetails()
-            .selectOneServer {serverName: 's1'}
+            .selectOneServer(
+                serverName: 's1')
             .waitUntilDataCenterIsAvailable()
             .waitUntilServerIsRunning()
             .execute (err, ctx) ->
@@ -177,15 +179,17 @@ describe 'profitBricksJobBuilder', ->
             .getDataCenterDetails(null, 'put.my.info.here')
             .execute (err, ctx) ->
                 info = pbBuilder.getContextItem 'put.my.info.here'
-                datacenterName = pbBuilder
+                dataCenterName = pbBuilder
                     .getContextItem 'put.my.info.here.dataCenterName'
+                firstDataCenterName = pbBuilder
+                    .getFirstContextItem "put.my.info.here.dataCenterName"
                 expect(err).to.be.null
                 expect(ctx.put.my.info.here).to.be.not.empty
                 expect(ctx.put.my.info.here.dataCenterName).to.be.equal 'dc1'
                 expect(info).to.be.not.empty
                 expect(info).to.be.a 'object'
                 expect(dataCenterName).to.be.equal 'dc1'
-                expect(dataCenterName).to.be.equal dc1
+                expect(firstDataCenterName).to.be.equal 'dc1'
                 done()
 
     it 'delete datacenter', (done) ->
