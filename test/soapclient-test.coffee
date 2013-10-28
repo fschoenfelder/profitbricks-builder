@@ -1,6 +1,8 @@
+# Std library
+# Third party
 expect = require('chai').expect
-debug = require('debug')('profitbricks-builder/test')
-
+debug = require('debug') 'profitbricks-builder/test'
+# Local dep
 SoapClient = require '../src/soapclient'
 
 
@@ -8,18 +10,21 @@ soapClient = null
 
 describe "soapClient", ->
     before (done) ->
-        soapClient = SoapClient.newBasicAuth("#{__dirname}/api_profitbricks_com_1_2.wsdl")
+        soapClient = SoapClient
+            .newBasicAuth "#{__dirname}/api_profitbricks_com_1_2.wsdl"
         done()
 
     it "init with file wsdl describe", (done) ->
         soapClient.init (err) ->
             expect(err).to.be.null
             description = soapClient.describe()
-            expect(description).to.be.an("Object")
+            expect(description).to.be.an "Object"
             expect(description).to.be.not.empty
-            debug "#{soapClient.url} describe output is #{JSON.stringify description}"
-            servicePort = description.ProfitbricksApiService.ProfitbricksApiServicePort
-            expect(servicePort).to.be.an("Object")
+            debug "#{soapClient.url} describe output is " +
+                "#{JSON.stringify description}"
+            servicePort = description.ProfitbricksApiService
+                .ProfitbricksApiServicePort
+            expect(servicePort).to.be.an "Object"
             expect(servicePort).to.be.not.empty
 
             expect(servicePort.getAllDataCenters).to.be.not.empty

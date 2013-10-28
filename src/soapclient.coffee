@@ -1,33 +1,33 @@
 soap = require 'soap'
 
-debug = require('debug')('profitbricks-builder/soapclient')
+debug = require('debug') 'profitbricks-builder/soapclient'
 
 class SoapClient
     constructor: (@url, @security) ->
 
-    init: (cb) ->
+    init: (callback) ->
         soap.createClient @url, (err, client) =>
-            if(err?)
-                cb(err)
+            if err?
+                callback err
             else
                 @client = client
-                @client.setSecurity(@security)
-                cb(err)
+                @client.setSecurity @security
+                callback err
         undefined
 
     describe: ->
         @client.describe()
 
-    invoke: (func, args, cb) ->
+    invoke: (func, args, callback) ->
         @client[func] args, (err, result) =>
             debug @client.lastRequest
-            cb(err, result)
+            callback err, result
         undefined
 
-    invokeJustLog: (func, args, cb) ->
+    invokeJustLog: (func, args, callback) ->
         debug func, args
-        cb(null)
+        callback null
         undefined
 
 module.exports.newBasicAuth =  (url, user, pwd) ->
-    new SoapClient(url, new soap.BasicAuthSecurity(user, pwd))
+    new SoapClient url, new soap.BasicAuthSecurity(user, pwd)
